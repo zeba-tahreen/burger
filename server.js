@@ -1,54 +1,28 @@
 var express = require("express");
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
+
+var port = 8000;
+
 var app = express();
-var PORT = process.env.PORT || 8000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(process.cwd() + "/public"));
 
-var exhbs = require('express-handlebars');
-app.engine("handlebars", exhbs({ defaultLayout: "main" }));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
+
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
 
-var routes = require('./controllers/burgers_controller');
-app.use(routes);
-// var data = {
-//     title: "My Page",
-//     hobbies: ["Eating", "Sleeping", "Boxing", "Coding"]
-// }
+app.use("/", routes);
 
-// app.get("/", function(req, res){
-//     res.render("home", data)
-// })
-
-// app.post("/api/addHobby", function(req, res){
-//     console.log(req.body)
-//     data.hobbies.push(req.body.hobby);
-//     res.render("home", data)
-// })
-
-// app.post("/api/delete", function(req, res){
-//     console.log(req.body)
-//     let index = 0;
-//     for(var i = 0; i < data.hobbies.length; i++){
-//         if(data.hobbies[i] === req.body.hobby){
-//             index = i;
-//         }
-//     }
-//     data.hobbies.splice(index, 1)
-//     res.render("home", data)
-// })
-// app.get("/api/delete/:hobby", function(req, res){
-//     let index = 0;
-//     for(var i = 0; i < data.hobbies.length; i++){
-//         if(data.hobbies[i] === req.params.hobby){
-//             index = i;
-//         }
-//     }
-//     data.hobbies.splice(index, 1)
-//     res.render("home", data)
-// })
-
-app.listen(PORT, function(){
-    console.log("Listening on PORT: " + PORT);
-})
+app.listen(port);

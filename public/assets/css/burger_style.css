@@ -1,0 +1,90 @@
+li {
+    padding: 15px;
+    margin: 15px;
+    background: rgba(0, 0, 0, 0.658);
+    list-style: none;
+  }
+  
+  ul {
+      list-style: none;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .center {
+      text-align: center;
+  }
+  
+  .right {
+      align-content: right;
+  }
+  
+  h1, h2{
+      text-align: center;
+      background: rgba(0, 0, 0, 0.466);
+      border-radius: 20px;
+      border: 2px solid rgb(75, 21, 21);
+      padding: 15px;
+  }
+  
+  h2 {
+      color: bisque;
+  }
+  
+  .create-update-form {
+    padding: 25px;
+    margin: 25px;
+    background:rgba(0, 0, 0, 0.658);
+    border: 1px black solid;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+    color: bisque;
+    padding: 5px;
+  }
+  input{
+      color: black;
+      border: none;
+  }
+  
+  .btn-primary {
+      background: rgb(75, 21, 21);
+      padding: 6px;
+      width: 80px;
+      font-size: 12px;
+      border-radius: 10px;
+      border: none;
+  }
+  .btn-primary:hover{
+      background: rgb(36, 80, 36);
+  }
+  
+  html, body{
+      height: 100%;
+  }
+  body { 
+      background-image: url(https://www.barraques.cat/pngfile/big/34-344610_new-bobs-burgers-wallpaper-for-my-work-desktop.jpg) ;
+      background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size:  cover;
+      background-color: #000000;  
+  }
+  
+  div, body{
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgb(189, 179, 179);
+  }
+  
+  .container-footer {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.466);
+      border-top: 2px  solid rgb(75, 21, 21);
+      padding: 15px;
+  }
+  
